@@ -1,0 +1,78 @@
+= Micrometer Certifications Expiration Metric
+
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+== Motivation
+
+To keep track of the expiration date for your used certificates in your (cloud) JVM application one need to monitor them.
+This https://micrometer.io/[micrometer.io] metric expose the expiration date for each provided certificate.
+
+== Usage
+
+=== Plain Java
+
+[source,java,indent=0]
+----
+        final DefaultX509CertificateMetricTagFactory factory =
+            new DefaultX509CertificateMetricTagFactory();
+        final X509CertificateSource source = new CustomGlobalTrustStoreX509Certificates();
+
+        new X509CertificateExpirationMetrics(factory, source).bindTo(registry);
+----
+
+=== Spring Boot
+
+[source,java,indent=0]
+----
+    @Bean
+    public X509CertificateExpirationMetrics x509CertificateExpirationMetrics() {
+
+        final DefaultX509CertificateMetricTagFactory factory =
+            new DefaultX509CertificateMetricTagFactory();
+        final X509CertificateSource source = new CustomGlobalTrustStoreX509Certificates();
+
+        return new X509CertificateExpirationMetrics(factory, source);
+    }
+----
+
+== Metric Tags
+
+To distinguish the certificates within the metric a set of tags are required.
+The `DefaultX509CertificateMetricTagFactory` creates for each certificate a tag with key `subjectDN` with the value from the certificate itself.
+
+NOTE: You can customize the behaviour by your own implementation of `X509CertificateMetricTagFactory`.
+
+== Collect Certifications
+
+=== (Custom Global) TrustStore
+
+To keep track of all certificates provided by the custom global TrustStore via system properties
+
+----
+javax.net.ssl.trustStore=
+javax.net.ssl.trustStorePassword=
+javax.net.ssl.trustStoreType=[jks|pkcs12]
+----
+
+use `CustomGlobalTrustStoreX509Certificates`.
+It reads all certificates from the store.
+
+CAUTION: If the trust store password is not provided, an empty collection is returned.
+In case of an invalid one an exception is thrown.
+See test cases for more information.
+
+=== Custom
+
+To provide a custom set of certificates you need to implement `X509CertificateSource` interface.
+
+TIP: For convenience the `X509CertificateSourceComposite` class collects all certificates from the provided sources.
+
+== License
+
+This project is Open Source software and released under the https://www.apache.org/licenses/LICENSE-2.0.html[Apache 2.0 license].
