@@ -39,16 +39,23 @@ This https://micrometer.io/[micrometer.io] metric expose the expiration date for
 
 [source,java,indent=0]
 ----
+ifndef::env-github[]
+include::samples/spring-boot/src/main/java/io/github/agebhar1/demo/micrometer/security/cert/DemoMicrometerCertsExpirationApplication.java[tag=bean]
+endif::[]
+ifdef::env-github[]
     @Bean
     public X509CertificateExpirationMetrics x509CertificateExpirationMetrics() {
 
-        final DefaultX509CertificateMetricTagFactory factory =
-            new DefaultX509CertificateMetricTagFactory();
-        final X509CertificateSource source = new CustomGlobalTrustStoreX509Certificates();
+        final DefaultX509CertificateMetricTagFactory factory = new DefaultX509CertificateMetricTagFactory();
+        final X509CertificateSource source = X509CertificateSourceComposite.of(
+            new CustomGlobalTrustStoreX509Certificates());
 
         return new X509CertificateExpirationMetrics(factory, source);
     }
+endif::[]
 ----
+
+See link:samples/spring-boot/src/main/java/io/github/agebhar1/demo/micrometer/security/cert/DemoMicrometerCertsExpirationApplication.java[example].
 
 == Metric Tags
 

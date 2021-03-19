@@ -45,6 +45,7 @@
 
     <modules>
         <module>project</module>
+        <module>samples</module>
     </modules>
 
     <properties>
@@ -55,7 +56,7 @@
         <logback.version>1.2.3</logback.version>
         <micrometer.version>1.6.6</micrometer.version>
         <slf4j.version>1.7.30</slf4j.version>
-        <spring-boot.version>2.4.4</spring-boot.version>
+        <spring-boot.version>2.4.5</spring-boot.version>
         <!-- plugins -->
         <flatten-maven-plugin.version>1.2.7</flatten-maven-plugin.version>
     </properties>
