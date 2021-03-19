@@ -1,4 +1,4 @@
-= Micrometer Certifications Expiration Metric
+= Micrometer Certifications Expiration Metric image:https://maven-badges.herokuapp.com/maven-central/io.github.agebhar1/micrometer-certs-expiration/badge.svg?style=plastic[link="https://search.maven.org/artifact/io.github.agebhar1/micrometer-certs-expiration"]
 
 ifdef::env-github[]
 :tip-caption: :bulb:
@@ -14,6 +14,15 @@ To keep track of the expiration date for your used certificates in your (cloud) 
 This https://micrometer.io/[micrometer.io] metric expose the expiration date for each provided certificate.
 
 == Usage
+
+[source,xml,indent=0]
+----
+        <dependency>
+            <groupId>io.github.agebhar1</groupId>
+            <artifactId>micrometer-certs-expiration</artifactId>
+            <version>x.y.z</version>
+        </dependency>
+----
 
 === Plain Java
 
