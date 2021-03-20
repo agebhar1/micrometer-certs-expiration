@@ -13,8 +13,15 @@
     <artifactId>micrometer-certs-expiration</artifactId>
 
     <name>${project.artifactId}</name>
+    <url>https://github.com/agebhar1/micrometer-certs-expiration</url>
 
     <packaging>jar</packaging>
+
+    <scm>
+        <url>${project.url}</url>
+        <connection>scm:git:https://github.com/agebhar1/micrometer-certs-expiration</connection>
+        <developerConnection>scm:git:git://github.com/agebhar1/micrometer-certs-expiration</developerConnection>
+    </scm>
 
     <dependencies>
         <dependency>
