@@ -1,4 +1,4 @@
-= Micrometer Certifications Expiration Metric image:https://maven-badges.herokuapp.com/maven-central/io.github.agebhar1/micrometer-certs-expiration/badge.svg?style=plastic[link="https://search.maven.org/artifact/io.github.agebhar1/micrometer-certs-expiration"]
+= Micrometer Certifications Expiration Metric image:https://maven-badges.herokuapp.com/maven-central/io.github.agebhar1/micrometer-certs-expiration/badge.svg?style=plastic[link="https://search.maven.org/artifact/io.github.agebhar1/micrometer-certs-expiration"] image:https://github.com/agebhar1/micrometer-certs-expiration/actions/workflows/ci.yml/badge.svg[link="https://github.com/agebhar1/micrometer-certs-expiration/actions/workflows/ci.yml"]
 
 ifdef::env-github[]
 :tip-caption: :bulb:
