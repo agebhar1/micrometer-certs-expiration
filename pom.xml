@@ -52,7 +52,7 @@
         <!-- dependencies -->
         <assertj.version>3.21.0</assertj.version>
         <junit5.version>5.8.1</junit5.version>
-        <junit-pioneer.version>1.4.2</junit-pioneer.version>
+        <junit-pioneer.version>1.5.0</junit-pioneer.version>
         <logback.version>1.2.6</logback.version>
         <micrometer.version>1.7.5</micrometer.version>
         <slf4j.version>1.7.32</slf4j.version>
