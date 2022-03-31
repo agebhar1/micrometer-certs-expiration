@@ -54,7 +54,7 @@
         <junit5.version>5.8.2</junit5.version>
         <junit-pioneer.version>1.6.2</junit-pioneer.version>
         <logback.version>1.2.11</logback.version>
-        <micrometer.version>1.8.0</micrometer.version>
+        <micrometer.version>1.8.4</micrometer.version>
         <slf4j.version>1.7.32</slf4j.version>
         <spring-boot.version>2.6.0</spring-boot.version>
         <!-- plugins -->
