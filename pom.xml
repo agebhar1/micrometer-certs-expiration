@@ -50,7 +50,7 @@
 
     <properties>
         <!-- dependencies -->
-        <assertj.version>3.21.0</assertj.version>
+        <assertj.version>3.22.0</assertj.version>
         <junit5.version>5.8.1</junit5.version>
         <junit-pioneer.version>1.5.0</junit-pioneer.version>
         <logback.version>1.2.7</logback.version>
