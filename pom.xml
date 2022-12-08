@@ -49,54 +49,8 @@
     </modules>
 
     <properties>
-        <!-- dependencies -->
-        <assertj.version>3.23.1</assertj.version>
-        <junit5.version>5.9.0</junit5.version>
-        <junit-pioneer.version>1.7.1</junit-pioneer.version>
-        <logback.version>1.2.11</logback.version>
-        <micrometer.version>1.9.5</micrometer.version>
-        <slf4j.version>1.7.36</slf4j.version>
-        <spring-boot.version>2.7.5</spring-boot.version>
-        <!-- plugins -->
         <flatten-maven-plugin.version>1.2.7</flatten-maven-plugin.version>
     </properties>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>ch.qos.logback</groupId>
-                <artifactId>logback-classic</artifactId>
-                <version>${logback.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.micrometer</groupId>
-                <artifactId>micrometer-core</artifactId>
-                <version>${micrometer.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.assertj</groupId>
-                <artifactId>assertj-core</artifactId>
-                <version>${assertj.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.junit</groupId>
-                <artifactId>junit-bom</artifactId>
-                <version>${junit5.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.junit-pioneer</groupId>
-                <artifactId>junit-pioneer</artifactId>
-                <version>${junit-pioneer.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-api</artifactId>
-                <version>${slf4j.version}</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 
     <build>
         <pluginManagement>
@@ -130,30 +84,6 @@
                         <phase>verify</phase>
                         <goals>
                             <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>flatten-maven-plugin</artifactId>
-                <configuration>
-                    <updatePomFile>true</updatePomFile>
-                    <flattenMode>ossrh</flattenMode>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>flatten</id>
-                        <phase>process-resources</phase>
-                        <goals>
-                            <goal>flatten</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>flatten.clean</id>
-                        <phase>clean</phase>
-                        <goals>
-                            <goal>clean</goal>
                         </goals>
                     </execution>
                 </executions>
