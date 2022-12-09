@@ -35,12 +35,12 @@ This https://micrometer.io/[micrometer.io] metric expose the expiration date for
         new X509CertificateExpirationMetrics(factory, source).bindTo(registry);
 ----
 
-=== Spring Boot
+=== Spring Boot 2/3
 
 [source,java,indent=0]
 ----
 ifndef::env-github[]
-include::samples/spring-boot/src/main/java/io/github/agebhar1/demo/micrometer/security/cert/DemoMicrometerCertsExpirationApplication.java[tag=bean]
+include::samples/spring-boot3/src/main/java/io/github/agebhar1/demo/micrometer/security/cert/DemoMicrometerCertsExpirationApplication.java[tag=bean]
 endif::[]
 ifdef::env-github[]
     @Bean
@@ -55,7 +55,7 @@ ifdef::env-github[]
 endif::[]
 ----
 
-See link:samples/spring-boot/src/main/java/io/github/agebhar1/demo/micrometer/security/cert/DemoMicrometerCertsExpirationApplication.java[example].
+See link:samples/spring-boot3/src/main/java/io/github/agebhar1/demo/micrometer/security/cert/DemoMicrometerCertsExpirationApplication.java[example] (Spring Boot 3).
 
 == Metric Tags
 

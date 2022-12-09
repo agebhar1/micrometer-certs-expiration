@@ -23,4 +23,8 @@ jobs:
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
       - name: Verify with Maven
+        if: ${{ matrix.javaVersion >= 17 }}
         run: mvn verify --no-transfer-progress -Drevision=0.1.0 -Dchangelist=-SNAPSHOT
+      - name: Verify with Maven
+        if: ${{ matrix.javaVersion < 17 }}
+        run: mvn verify --no-transfer-progress -Drevision=0.1.0 -Dchangelist=-SNAPSHOT --projects -:micrometer-certs-expiration-samples-spring-boot3
