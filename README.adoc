@@ -77,6 +77,28 @@ endif::[]
 
 See link:samples/quarkus/src/main/java/io/github/agebhar1/demo/micrometer/security/cert/X509CertificateExpirationMetricsProducer.java[example].
 
+== Micronaut
+
+[source,java,indent=0]
+----
+ifndef::env-github[]
+include::samples/micronaut/src/main/java/io/github/agebhar1/micrometer/security/cert/DemoMicrometerCertsExpirationApplication.java[tag=bean]
+endif::[]
+ifdef::env-github[]
+    @Bean
+    @Singleton
+    @Primary
+    public X509CertificateExpirationMetrics x509CertificateExpirationMetrics() {
+        final DefaultX509CertificateMetricTagFactory factory = new DefaultX509CertificateMetricTagFactory();
+        final X509CertificateSource source = X509CertificateSourceComposite.of(new CustomGlobalTrustStoreX509Certificates());
+
+        return new X509CertificateExpirationMetrics(factory, source);
+    }
+endif::[]
+----
+
+See link:samples/micronaut/src/main/java/io/github/agebhar1/micrometer/security/cert/DemoMicrometerCertsExpirationApplication.java[example].
+
 == Metric Tags
 
 To distinguish the certificates within the metric a set of tags are required.
