@@ -94,15 +94,22 @@
                 <artifactId>license-maven-plugin</artifactId>
                 <version>4.2.rc3</version>
                 <configuration>
-                    <header>com/mycila/maven/plugin/license/templates/APACHE-2.txt</header>
+                    <licenseSets>
+                        <licenseSet>
+                            <header>com/mycila/maven/plugin/license/templates/APACHE-2.txt</header>
+                            <includes>
+                                <include>src/main/java/**</include>
+                                <include>src/test/java/**</include>
+                            </includes>
+                            <excludes>
+                                <exclude>**/pom.xml</exclude>
+                            </excludes>
+                        </licenseSet>
+                    </licenseSets>
                     <properties>
                         <owner>Andreas Gebhardt</owner>
                         <email>agebhar1@googlemail.com</email>
                     </properties>
-                    <includes>
-                        <include>src/main/java/**</include>
-                        <include>src/test/java/**</include>
-                    </includes>
                     <skipExistingHeaders>true</skipExistingHeaders>
                 </configuration>
                 <executions>
