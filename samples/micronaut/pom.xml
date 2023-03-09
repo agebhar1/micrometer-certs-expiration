@@ -19,7 +19,6 @@
         <packaging>jar</packaging>
         <jdk.version>11</jdk.version>
         <release.version>11</release.version>
-        <micronaut.version>3.8.7</micronaut.version>
         <micronaut.test.resources.enabled>true</micronaut.test.resources.enabled>
         <micronaut.runtime>netty</micronaut.runtime>
         <exec.mainClass>io.github.agebhar1.micrometer.security.cert.DemoMicrometerCertsExpirationApplication</exec.mainClass>
