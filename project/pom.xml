@@ -26,7 +26,7 @@
     <properties>
         <assertj.version>3.24.2</assertj.version>
         <junit5.version>5.9.2</junit5.version>
-        <junit-pioneer.version>2.0.0</junit-pioneer.version>
+        <junit-pioneer.version>2.0.1</junit-pioneer.version>
         <logback.version>1.4.6</logback.version>
         <micrometer.version>1.10.6</micrometer.version>
         <slf4j.version>2.0.7</slf4j.version>
