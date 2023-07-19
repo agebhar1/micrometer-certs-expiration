@@ -77,27 +77,33 @@ endif::[]
 
 See link:samples/quarkus3/src/main/java/io/github/agebhar1/demo/micrometer/security/cert/X509CertificateExpirationMetricsProducer.java[example].
 
-=== Micronaut
+=== Micronaut 3/4
 
 [source,java,indent=0]
 ----
 ifndef::env-github[]
-include::samples/micronaut/src/main/java/io/github/agebhar1/micrometer/security/cert/DemoMicrometerCertsExpirationApplication.java[tag=bean]
+include::samples/micronaut4/src/main/java/io/github/agebhar1/micrometer/security/cert/DemoMicrometerCertsExpirationApplication.java[tag=factory]
 endif::[]
 ifdef::env-github[]
-    @Bean
-    @Singleton
-    @Primary
-    public X509CertificateExpirationMetrics x509CertificateExpirationMetrics() {
-        final DefaultX509CertificateMetricTagFactory factory = new DefaultX509CertificateMetricTagFactory();
-        final X509CertificateSource source = X509CertificateSourceComposite.of(new CustomGlobalTrustStoreX509Certificates());
+    @Factory
+    @RequiresMetrics
+    public static class X509CertificateExpirationMetricsFactory {
 
-        return new X509CertificateExpirationMetrics(factory, source);
+        @Bean
+        @Singleton
+        @Primary
+        public X509CertificateExpirationMetrics x509CertificateExpirationMetrics() {
+            final DefaultX509CertificateMetricTagFactory factory = new DefaultX509CertificateMetricTagFactory();
+            final X509CertificateSource source = X509CertificateSourceComposite.of(new CustomGlobalTrustStoreX509Certificates());
+
+            return new X509CertificateExpirationMetrics(factory, source);
+        }
+
     }
 endif::[]
 ----
 
-See link:samples/micronaut/src/main/java/io/github/agebhar1/micrometer/security/cert/DemoMicrometerCertsExpirationApplication.java[example].
+See link:samples/micronaut4/src/main/java/io/github/agebhar1/micrometer/security/cert/DemoMicrometerCertsExpirationApplication.java[example] (Micronaut 4).
 
 == Metric Tags
 
