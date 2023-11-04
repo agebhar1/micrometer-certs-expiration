@@ -8,7 +8,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        javaVersion: [ 11, 17 ]
+        javaVersion: [ 11, 17, 21 ]
         javaDistribution: [ "temurin", "zulu" ]
     name: Java ${{ matrix.javaVersion }}-${{ matrix.javaDistribution }}
     steps:
