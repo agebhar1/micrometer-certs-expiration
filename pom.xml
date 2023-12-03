@@ -7,7 +7,7 @@
     <parent>
         <groupId>org.basepom</groupId>
         <artifactId>basepom-oss</artifactId>
-        <version>55</version>
+        <version>56</version>
     </parent>
 
     <groupId>io.github.agebhar1</groupId>
@@ -52,6 +52,8 @@
         <project.build.targetJdk>8</project.build.targetJdk>
         <!-- dependencies -->
         <flatten-maven-plugin.version>1.5.0</flatten-maven-plugin.version>
+        <!-- keep until SpotBugs #2732 is released, > 4.8.2 -->
+        <dep.spotbugs.version>4.7.3</dep.spotbugs.version>
     </properties>
 
     <build>
