@@ -1,0 +1,46 @@
+name: "CodeQL"
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  schedule:
+    - cron: '00 08 * * 6'
+
+jobs:
+  analyze:
+    name: Analyze
+    runs-on: ubuntu-22.04
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: java-kotlin
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - name: Restore Maven m2
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
+
+      - name: Verify with Maven
+        run: mvn verify --no-transfer-progress -Drevision=0.1.0 -Dchangelist=-SNAPSHOT
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
