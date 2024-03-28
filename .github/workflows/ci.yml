@@ -1,5 +1,6 @@
 ---
 name: CI
+permissions: {}
 
 on: [ push ]
 jobs:
