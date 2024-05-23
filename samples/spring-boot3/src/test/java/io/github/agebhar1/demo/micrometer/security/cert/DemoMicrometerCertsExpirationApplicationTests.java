@@ -68,11 +68,11 @@ class DemoMicrometerCertsExpirationApplicationTests {
 
             assertThat(body.split("\n"))
                     .contains(
-                            "# TYPE security_cert_x509_expiration_seconds gauge",
                             "# HELP security_cert_x509_expiration_seconds Time since the Unix epoch in seconds when the certificate is no longer valid.",
-                            "security_cert_x509_expiration_seconds{subjectDN=\"CN=Amazon Root CA 4, O=Amazon, C=US\",} 2.2216032E9",
-                            "security_cert_x509_expiration_seconds{subjectDN=\"CN=GlobalSign, O=GlobalSign, OU=GlobalSign Root CA - R6\",} 2.0493216E9",
-                            "security_cert_x509_expiration_seconds{subjectDN=\"CN=Secure Global CA, O=SecureTrust Corporation, C=US\",} 1.893441126E9"
+                            "# TYPE security_cert_x509_expiration_seconds gauge",
+                            "security_cert_x509_expiration_seconds{subjectDN=\"CN=Amazon Root CA 4, O=Amazon, C=US\"} 2.2216032E9",
+                            "security_cert_x509_expiration_seconds{subjectDN=\"CN=GlobalSign, O=GlobalSign, OU=GlobalSign Root CA - R6\"} 2.0493216E9",
+                            "security_cert_x509_expiration_seconds{subjectDN=\"CN=Secure Global CA, O=SecureTrust Corporation, C=US\"} 1.893441126E9"
                     );
         }
 
