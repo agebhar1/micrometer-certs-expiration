@@ -24,7 +24,7 @@
     </scm>
 
     <properties>
-        <assertj.version>3.26.3</assertj.version>
+        <assertj.version>3.27.0</assertj.version>
         <junit5.version>5.11.3</junit5.version>
         <junit-pioneer.version>2.3.0</junit-pioneer.version>
         <logback.version>1.5.14</logback.version>
