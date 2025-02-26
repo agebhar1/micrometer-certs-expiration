@@ -51,7 +51,7 @@
     <properties>
         <project.build.targetJdk>8</project.build.targetJdk>
         <!-- dependencies -->
-        <flatten-maven-plugin.version>1.6.0</flatten-maven-plugin.version>
+        <flatten-maven-plugin.version>1.7.0</flatten-maven-plugin.version>
         <!-- keep until SpotBugs #2732 is released, > 4.8.2 -->
         <dep.spotbugs.version>4.7.3</dep.spotbugs.version>
     </properties>
