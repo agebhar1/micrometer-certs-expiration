@@ -36,7 +36,7 @@ public class X509CertificateExpirationMetrics implements MeterBinder {
     public static final String Name = "security.cert.x509.expiration";
     public static final String Description = "Time since the Unix epoch in seconds when the certificate is no longer valid.";
 
-    private final Collection<Gauge.Builder<Supplier<Number>>> gauges;
+    private final Collection<Gauge.Builder<Supplier<Long>>> gauges;
 
     public X509CertificateExpirationMetrics(final X509CertificateMetricTagFactory metricTagFactory, final X509CertificateSource source) {
 
@@ -52,7 +52,7 @@ public class X509CertificateExpirationMetrics implements MeterBinder {
 
     }
 
-    private Collection<Gauge.Builder<Supplier<Number>>> populate(final X509CertificateMetricTagFactory metricTagFactory, final Collection<X509Certificate> certificates) {
+    private Collection<Gauge.Builder<Supplier<Long>>> populate(final X509CertificateMetricTagFactory metricTagFactory, final Collection<X509Certificate> certificates) {
 
         if (certificates == null) {
             throw new IllegalArgumentException("Collection of certificates must not be null.");
