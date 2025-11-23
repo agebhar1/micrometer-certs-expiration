@@ -21,6 +21,7 @@
         <module>quarkus3</module>
         <module>spring-boot</module>
         <module>spring-boot3</module>
+        <module>spring-boot4</module>
     </modules>
 
 </project>

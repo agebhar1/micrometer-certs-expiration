@@ -28,4 +28,4 @@ jobs:
         run: mvn verify --no-transfer-progress -Drevision=0.1.0 -Dchangelist=-SNAPSHOT
       - name: Verify with Maven
         if: ${{ matrix.javaVersion < 17 }}
-        run: mvn verify --no-transfer-progress -Drevision=0.1.0 -Dchangelist=-SNAPSHOT --projects -:micrometer-certs-expiration-samples-spring-boot3,-:micrometer-certs-expiration-samples-micronaut4,-:micrometer-certs-expiration-samples-quarkus3
+        run: mvn verify --no-transfer-progress -Drevision=0.1.0 -Dchangelist=-SNAPSHOT --projects -:micrometer-certs-expiration-samples-spring-boot3,-:micrometer-certs-expiration-samples-spring-boot4,-:micrometer-certs-expiration-samples-micronaut4,-:micrometer-certs-expiration-samples-quarkus3

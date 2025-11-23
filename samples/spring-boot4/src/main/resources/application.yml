@@ -1,0 +1,10 @@
+---
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - prometheus
+logging:
+  level:
+    io.github.agebhar1: debug
