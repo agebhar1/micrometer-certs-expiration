@@ -11,7 +11,7 @@ on:
     - cron: '00 08 * * 6'
 
 env:
-  JAVA_VERSION: '21'
+  JAVA_VERSION: '25'
 
 jobs:
   analyze:

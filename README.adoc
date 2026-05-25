@@ -77,12 +77,12 @@ endif::[]
 
 See link:samples/quarkus3/src/main/java/io/github/agebhar1/demo/micrometer/security/cert/X509CertificateExpirationMetricsProducer.java[example].
 
-=== Micronaut 3/4
+=== Micronaut 3/4/5
 
 [source,java,indent=0]
 ----
 ifndef::env-github[]
-include::samples/micronaut4/src/main/java/io/github/agebhar1/micrometer/security/cert/DemoMicrometerCertsExpirationApplication.java[tag=factory]
+include::samples/micronaut5/src/main/java/io/github/agebhar1/micrometer/security/cert/DemoMicrometerCertsExpirationApplication.java[tag=factory]
 endif::[]
 ifdef::env-github[]
     @Factory
@@ -103,7 +103,7 @@ ifdef::env-github[]
 endif::[]
 ----
 
-See link:samples/micronaut4/src/main/java/io/github/agebhar1/micrometer/security/cert/DemoMicrometerCertsExpirationApplication.java[example] (Micronaut 4).
+See link:samples/micronaut5/src/main/java/io/github/agebhar1/micrometer/security/cert/DemoMicrometerCertsExpirationApplication.java[example] (Micronaut 5).
 
 == Metric Tags
 

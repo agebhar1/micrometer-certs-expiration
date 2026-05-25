@@ -20,8 +20,13 @@ jobs:
           java-version: ${{ matrix.javaVersion }}
           cache: 'maven'
       - name: Verify with Maven
-        if: ${{ matrix.javaVersion >= 17 }}
+        if: ${{ matrix.javaVersion >= 25 }}
         run: mvn verify --no-transfer-progress -Drevision=0.1.0 -Dchangelist=-SNAPSHOT
       - name: Verify with Maven
+        if: ${{ matrix.javaVersion >= 17 && matrix.javaVersion < 25 }}
+        run: |
+          sed --in-place '/micronaut5/d' samples/pom.xml
+          mvn verify --no-transfer-progress -Drevision=0.1.0 -Dchangelist=-SNAPSHOT  # --projects -:micrometer-certs-expiration-samples-micronaut5 fails on GitHub
+      - name: Verify with Maven
         if: ${{ matrix.javaVersion < 17 }}
-        run: mvn verify --no-transfer-progress -Drevision=0.1.0 -Dchangelist=-SNAPSHOT --projects -:micrometer-certs-expiration-samples-spring-boot3,-:micrometer-certs-expiration-samples-spring-boot4,-:micrometer-certs-expiration-samples-micronaut4,-:micrometer-certs-expiration-samples-quarkus3
+        run: mvn verify --no-transfer-progress -Drevision=0.1.0 -Dchangelist=-SNAPSHOT --projects -:micrometer-certs-expiration-samples-spring-boot3,-:micrometer-certs-expiration-samples-spring-boot4,-:micrometer-certs-expiration-samples-micronaut4,-:micrometer-certs-expiration-samples-micronaut5,-:micrometer-certs-expiration-samples-quarkus3

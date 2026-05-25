@@ -17,6 +17,7 @@
     <modules>
         <module>micronaut</module>
         <module>micronaut4</module>
+        <module>micronaut5</module>
         <module>quarkus</module>
         <module>quarkus3</module>
         <module>spring-boot</module>
