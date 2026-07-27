@@ -55,7 +55,7 @@
         <dep.plugin.spotbugs.version>4.9.8.3</dep.plugin.spotbugs.version>
         <dep.spotbugs.version>4.9.8</dep.spotbugs.version>
         <!-- dependencies -->
-        <flatten-maven-plugin.version>1.7.3</flatten-maven-plugin.version>
+        <flatten-maven-plugin.version>1.8.0</flatten-maven-plugin.version>
     </properties>
 
     <build>
