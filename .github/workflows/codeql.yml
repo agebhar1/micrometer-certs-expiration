@@ -12,6 +12,7 @@ on:
 
 env:
   JAVA_VERSION: '25'
+  MAVEN_ARGS: --show-version --no-transfer-progress
 
 jobs:
   analyze:
@@ -30,6 +31,15 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
+      - name: Install SDKMAN!
+        run: |
+          curl -s "https://get.sdkman.io?ci=true" | bash
+          source "$HOME/.sdkman/bin/sdkman-init.sh"
+          sdk version
+      - name: Setup Maven
+        run: |
+          source "$HOME/.sdkman/bin/sdkman-init.sh"
+          sdk install maven 3.9.16
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v4
         with:
@@ -44,7 +54,9 @@ jobs:
           cache: 'maven'
       - if: matrix.language == 'java-kotlin'
         name: Manual Java Build
-        run: mvn verify --no-transfer-progress -Drevision=0.1.0 -Dchangelist=-SNAPSHOT
+        run: |
+          source "$HOME/.sdkman/bin/sdkman-init.sh"
+          mvn verify -Drevision=0.1.0 -Dchangelist=-SNAPSHOT
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v4
         with:
